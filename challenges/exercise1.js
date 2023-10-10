@@ -48,5 +48,7 @@ return count;
 
 export function hasMPostCode(person) {
 	if (person === undefined) throw new Error('person is required');
-	// Your code here!
+  
+	return ((person.address.postCode.charAt(0) === 'M')
+  && (person.address.city === 'Manchester'))
 }
