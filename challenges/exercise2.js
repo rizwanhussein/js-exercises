@@ -45,7 +45,18 @@ export function getTotalSubjects(people) {
 export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error('menu is required');
   if (!ingredient) throw new Error('ingredient is required');
-  // Your code here!
+  let ingredientArray = [];
+  menu.forEach(element => {
+    ingredientArray.push(element.ingredients);
+  });
+  for(let i = 0; i < ingredientArray.length; i++){
+    for(let j = 0; j < ingredientArray[i].length; j++){
+      if (ingredientArray[i][j] === ingredient){
+        return true;
+      }
+    }
+  }
+return false;
 }
 
 export function duplicateNumbers(arr1, arr2) {
