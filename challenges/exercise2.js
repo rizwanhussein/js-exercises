@@ -49,18 +49,31 @@ export function checkIngredients(menu, ingredient) {
   menu.forEach(element => {
     ingredientArray.push(element.ingredients);
   });
-  for(let i = 0; i < ingredientArray.length; i++){
-    for(let j = 0; j < ingredientArray[i].length; j++){
-      if (ingredientArray[i][j] === ingredient){
+  for (let i = 0; i < ingredientArray.length; i++) {
+    for (let j = 0; j < ingredientArray[i].length; j++) {
+      if (ingredientArray[i][j] === ingredient) {
         return true;
       }
     }
   }
-return false;
+  return false;
 }
 
 export function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error('arr1 is required');
   if (arr2 === undefined) throw new Error('arr2 is required');
-  // Your code here!
+  var intersections = arr1.filter(e => arr2.indexOf(e) !== -1);
+  console.log(arr1);
+  console.log(arr2);
+  console.log(intersections);
+
+  let unique = [];
+  intersections.forEach(element => {
+    if (!unique.includes(element)) {
+      unique.push(element);
+    }
+  });
+  intersections = unique;
+  intersections.sort(function (a, b) { return a - b; });
+  return intersections;
 }
