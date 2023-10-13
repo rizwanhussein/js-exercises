@@ -1,6 +1,12 @@
 export function findSmallNums(nums) {
 	if (!nums) throw new Error('nums is required');
-	// Your code here
+  let arraySmallNums = [];
+	nums.forEach(element => {
+    if (element < 1){
+      arraySmallNums.push(element);
+    }
+  });
+  return arraySmallNums;
 }
 
 export function findNamesBeginningWith(names, char) {
