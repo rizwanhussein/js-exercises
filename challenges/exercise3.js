@@ -26,7 +26,6 @@ export function findVerbs(words) {
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
   const result = [];
-  console.log(nums);
   nums.map((item) => {
     if (Number.isInteger(item)) result.push(item);
   });
@@ -37,7 +36,6 @@ export function getCities(users) {
   if (!users) throw new Error("users is required");
   let arrayOfCityFromUser = [];
   users.forEach((user) => {
-    console.log(user.data.city.displayName);
     arrayOfCityFromUser.push(user.data.city.displayName);
   });
   return arrayOfCityFromUser;
@@ -54,9 +52,14 @@ export function getSquareRoots(nums) {
 export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  let foundSentences = [];
+  for (let i = 0; i < sentences.length; i++) {
+    if (sentences[i].includes(str)) {
+      foundSentences.push(sentences[i]);
+    }
+  }
+  return foundSentences;
 }
-
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   // Your code here
