@@ -66,11 +66,18 @@ export function findSentencesContaining(sentences, str) {
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
-  // Step 1. Map over the main arrays
-  return triangles.map(function (subArray) {
-    // Step 3. Return the largest numbers of each sub-arrays
+  let largestNumber = [0, 0, 0, 0, 0];
+  for (let arrayIndex = 0; arrayIndex < triangles.length; arrayIndex++) {
+    for (
+      let subArrayIndex = 0;
+      subArrayIndex < triangles[arrayIndex].length;
+      subArrayIndex++
+    ) {
+      if (triangles[arrayIndex][subArrayIndex] > largestNumber[arrayIndex]) {
+        largestNumber[arrayIndex] = triangles[arrayIndex][subArrayIndex];
+      }
+    }
+  }
 
-    // Step 2. Return the largest numbers for each sub-arrays with Math.max() method
-    return Math.max.apply(null, subArray);
-  });
+  return largestNumber;
 }
