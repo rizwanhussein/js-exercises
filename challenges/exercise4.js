@@ -12,7 +12,7 @@ export const findNextNumber = (nums, n) => {
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  
+
     let countForZero = 0;
     let countForOne = 0;
 
@@ -34,7 +34,7 @@ export const count1sand0s = (str) => {
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  return parseFloat(n.toString().split('').reverse().join(''));
 };
 
 export const sumArrays = (arrs) => {
