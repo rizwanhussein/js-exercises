@@ -13,33 +13,39 @@ export const findNextNumber = (nums, n) => {
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
 
-    let countForZero = 0;
-    let countForOne = 0;
+  let countForZero = 0;
+  let countForOne = 0;
 
-    for (let i = 0, length = str.length; i < length; i++) {
-      if (str[i] === '0') {
-        countForZero++;
-      }
-      else {
-        countForOne++;
-      }
+  for (let i = 0, length = str.length; i < length; i++) {
+    if (str[i] === "0") {
+      countForZero++;
+    } else {
+      countForOne++;
     }
-
-    return {
-      '0': countForZero,
-      '1': countForOne
-    };
   }
 
+  return {
+    0: countForZero,
+    1: countForOne,
+  };
+};
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  return parseFloat(n.toString().split('').reverse().join(''));
+  return parseFloat(n.toString().split("").reverse().join(""));
 };
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  let total = 0;
+  for (let outerLoop = 0; outerLoop < arrs.length; outerLoop++) {
+    {
+      for (let innerLoop = 0; innerLoop < arrs[outerLoop].length; innerLoop++) {
+        total += arrs[outerLoop][innerLoop];
+      }
+    }
+  }
+  return total;
 };
 
 export const arrShift = (arr) => {
