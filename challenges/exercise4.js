@@ -57,26 +57,13 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  const asArray = Object.entries(haystack);
-  console.log(asArray);
 
-  console.log(asArray.length);
-  for (let arrayIndex = 0; arrayIndex < asArray.length; arrayIndex++) {
-    console.log(arrayIndex);
-    console.log(asArray[arrayIndex].length);
-    for (
-      let subArrayIndex = 0;
-      subArrayIndex < asArray[arrayIndex].length;
-      subArrayIndex++
-    ) {
-      console.log(asArray[arrayIndex][subArrayIndex]);
-      if (asArray[arrayIndex][subArrayIndex] === searchTerm) {
-        return true;
-      }
-    }
-
-    return false;
-  }
+  let obj1_str = JSON.stringify(haystack);
+  obj1_str = obj1_str.toLowerCase();
+  searchTerm = searchTerm.toLowerCase();
+  let isInFile = obj1_str.includes(searchTerm); //true if your string is there, false otherwise.
+  
+  return isInFile;
 };
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
@@ -96,6 +83,5 @@ export const getWordFrequencies = (str) => {
     }
   }
 
-  console.log(wordCounter);
   return wordCounter;
 };
